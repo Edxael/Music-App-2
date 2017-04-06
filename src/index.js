@@ -1,9 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
-import './index.css';
+import ReacDOM from 'react-dom';
+import Comp_01 from './01-Comp.jsx';
 
-ReactDOM.render(
-  <App />,
-  document.getElementById('root')
-);
+
+ReacDOM.render(<Comp_01 />, document.getElementById('root'));
