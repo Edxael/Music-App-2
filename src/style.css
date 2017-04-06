@@ -8,8 +8,20 @@ body{
 
 .container{
     background-color: aquamarine;
-    width: 500px;
+    width: 90vw;
     padding: 25px;
     margin-top: 55px;
     border: solid 2px black;
+}
+
+.Title{
+
+}
+
+.Profile{
+
+}
+
+.Gallery{
+    
 }
