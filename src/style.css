@@ -1,6 +1,6 @@
 html body{
-    background-color: rgb(0, 0, 0);
-    color: rgb(211, 250, 245);
+    background-color: rgb(236, 247, 140);
+    color: rgb(0, 0, 0);
     /*background-image: url("IMG/back3.jpg");*/
     text-align: center;
     display: flex;
@@ -8,14 +8,46 @@ html body{
 }
 
 .container{
-    background-color: rgb(26, 0, 80);
+    background-color: rgb(151, 252, 207);
     width: 500px;
     padding: 25px;
     margin-top: 55px;
-    border: solid 2px white;
+    border: solid 8px rgb(210, 245, 255);
+    box-shadow: 7px 7px 7px #888888;
 }
 
 .Tittle{
     font-size: 26px;
     margin-bottom: 10px;
+    font-weight: bold;
+    /*margin-top: 10px;*/
+}
+
+/*-----------  Profiles  ------------*/
+.profile{
+    display: flex;
+    justify-content: center;
+}
+
+.profile-info{
+    margin-left: 10px;
+    text-align: left;
+}
+
+.pro-pic{
+    width: 150px;
+    height: 150px;
+    border: 3px solid rgb(0, 0, 0);
+    border-radius: 75px;
+    object-fit: cover;
+}
+
+.profile-name{
+    color: rgb(64, 108, 238);
+    font-size: 26px;
+    margin-top: 25px;
+}
+
+.profile-followers, .profile-genres{
+    font-size: 18px;
 }

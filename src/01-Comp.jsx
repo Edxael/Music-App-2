@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import './style.css';
-import {FormGroup, FormControl, InputGroup, Glyphicon, Button} from 'react-bootstrap';
+import {FormGroup, FormControl, InputGroup, Glyphicon} from 'react-bootstrap';
+import Profile from './Profile.jsx';
 
-
-class Comp_01 extends Component{
+class Comp01 extends Component{
 
     constructor(props){
         super(props);
@@ -46,7 +46,6 @@ class Comp_01 extends Component{
                             <FormControl
                                 type="text"
                                 placeholder="Search for an Artist...."
-                                glyph="search"
 
                                     // This will load the: this.state = {query; ""} empty string with the value string on the form control(aka input area).
                                 value={this.state.query}
@@ -61,7 +60,7 @@ class Comp_01 extends Component{
                             />
 
 
-                                {/* This is the button and on click execute the anonimus function located: this.search() */}
+
                             <InputGroup.Addon onClick={() => this.search()}>
                                 <Glyphicon glyph="search"></Glyphicon>
                             </InputGroup.Addon>
@@ -70,10 +69,7 @@ class Comp_01 extends Component{
                     </FormGroup>
 
 
-                    <div className="Profile">
-                        <div>Artis Picture</div>
-                        <div>Artis Name</div>
-                    </div>
+                    <Profile artist={this.state.artist} />
 
                     <div className="Gallery">
                         Gallery
@@ -84,4 +80,4 @@ class Comp_01 extends Component{
     }
 }
 
-export default Comp_01;
+export default Comp01;
