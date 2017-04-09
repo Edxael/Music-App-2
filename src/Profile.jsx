@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import './style.css';
+import pic2 from './IMG/sing.png';
 
 
 class Profile extends Component{
     render() {
-        let pic1 = "https://images.vexels.com/media/users/3/130305/isolated/lists/b5886e95f67f09fdbefbf9f8f0e2390a-female-singer-silhouette.png";
-        let artist = { name: "Artist", followers: {total: "0"}, images: [{url: pic1}], genres: []};
+        // let pic1 = "https://images.vexels.com/media/users/3/130305/isolated/lists/b5886e95f67f09fdbefbf9f8f0e2390a-female-singer-silhouette.png";
+        let artist = { name: "Singer", followers: {total: "0"}, images: [{url: pic2}], genres: ["Pop", "Rock"]};
         artist = this.props.artist !== null ? this.props.artist : artist;
 
         return(

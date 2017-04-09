@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import './style.css';
 import {FormGroup, FormControl, InputGroup, Glyphicon} from 'react-bootstrap';
 import Profile from './Profile.jsx';
+import Gallery from './Gallery.jsx';
+import logo1 from './IMG/git3.png';
+import logo2 from './IMG/pf1.png';
 
 class Comp01 extends Component{
 
@@ -9,7 +12,8 @@ class Comp01 extends Component{
         super(props);
         this.state ={
             query: "",
-            artist: null
+            artist: null,
+            tracks: []
         }
     }
 
@@ -17,7 +21,8 @@ class Comp01 extends Component{
         console.log("this.state: ", this.state);
         const BASE_URL = 'https://api.spotify.com/v1/search?';
         let FETCH_URL = `${BASE_URL}q=${this.state.query}&type=artist&limit=1`;
-        console.log("FETCH_URL: ", FETCH_URL);
+        const ALBUM_URL = 'https://api.spotify.com/v1/artists/';
+        // console.log("FETCH_URL: ", FETCH_URL);
 
             // Fetching the data from FETCH_URL
         fetch(FETCH_URL, {
@@ -28,9 +33,18 @@ class Comp01 extends Component{
         .then(response => response.json())
         .then(json => {
         const artist = json.artists.items[0];
-
         this.setState({artist});
-        console.log("Artist: ", artist);
+
+        FETCH_URL = `${ALBUM_URL}${artist.id}/top-tracks?country=US&`;
+        fetch(FETCH_URL, {
+            method: 'GET'
+        })
+        .then(response => response.json())
+        .then(json => {
+            console.log('artist top tracks: ', json);
+            const {tracks} = json;
+            this.setState({tracks});
+        })
         });
     }
 
@@ -38,12 +52,13 @@ class Comp01 extends Component{
         return(
             <div className="container">
 
-                    <div className="Tittle">Music 4U</div>
+                    <div className="Tittle">ARTIST  MUSIC  PREVIEWS</div>
 
                     <FormGroup>
                         <InputGroup>
 
                             <FormControl
+                                className="s-bar"
                                 type="text"
                                 placeholder="Search for an Artist...."
 
@@ -71,8 +86,12 @@ class Comp01 extends Component{
 
                     <Profile artist={this.state.artist} />
 
-                    <div className="Gallery">
-                        Gallery
+                    <Gallery tracks={this.state.tracks} />
+
+                    <div className="bottom1 trans">
+                        <div className="name"> <p>by: Edmundo Rubio</p> </div>
+                        <div><a href="https://github.com/Edxael" target="blank"> <img className="icon" src={logo1} alt="??" /></a></div>
+                        <div><a href="http://www.mycode.website/" target="blank"> <img className="icon" src={logo2} alt="??" /></a></div>
                     </div>
 
             </div>
